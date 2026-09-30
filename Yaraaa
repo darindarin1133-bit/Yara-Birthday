@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Yara 🌙✨</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  background: #03051c;
+  color: white;
+}
+
+body {
+  position: relative;
+}
+
+/* 🌌 Stars */
+.stars {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(2px 2px at 10% 20%, white, transparent),
+    radial-gradient(1px 1px at 30% 70%, white, transparent),
+    radial-gradient(2px 2px at 60% 30%, white, transparent),
+    radial-gradient(1px 1px at 80% 60%, white, transparent),
+    radial-gradient(2px 2px at 90% 15%, white, transparent),
+    radial-gradient(1px 1px at 45% 15%, white, transparent),
+    radial-gradient(2px 2px at 20% 90%, white, transparent);
+  background-size: 250px 250px;
+  animation: starsMove 20s linear infinite;
+}
+
+@keyframes starsMove {
+  from { transform: translateY(0); }
+  to { transform: translateY(-250px); }
+}
+
+/* 🌙 Moon */
+.moon {
+  position: absolute;
+  top: 12%;
+  right: 12%;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: #fffbd6;
+  box-shadow:
+    0 0 20px #fffbd6,
+    0 0 50px rgba(255,255,220,.7),
+    0 0 100px rgba(255,255,220,.35);
+}
+
+/* ☁️ Clouds */
+.cloud {
+  position: absolute;
+  width: 150px;
+  height: 45px;
+  background: rgba(255,255,255,.10);
+  border-radius: 50px;
+  filter: blur(1px);
+  animation: cloudMove 30s linear infinite;
+}
+
+.cloud:before,
+.cloud:after {
+  content: "";
+  position: absolute;
+  background: rgba(255,255,255,.12);
+  border-radius: 50%;
+}
+
+.cloud:before {
+  width: 70px;
+  height: 70px;
+  left: 25px;
+  top: -35px;
+}
+
+.cloud:after {
+  width: 55px;
+  height: 55px;
+  right: 25px;
+  top: -25px;
+}
+
+.cloud1 {
+  top: 25%;
+  left: -180px;
+}
+
+.cloud2 {
+  top: 55%;
+  left: -300px;
+  animation-delay: 10s;
+}
+
+@keyframes cloudMove {
+  from { transform: translateX(0); }
+  to { transform: translateX(130vw); }
+}
+
+/* ☄️ Shooting stars */
+.shooting-star {
+  position: absolute;
+  width: 3px;
+  height: 90px;
+  background: linear-gradient(transparent, white);
+  transform: rotate(45deg);
+  animation: shooting 5s linear infinite;
+}
+
+.s1 {
+  top: 10%;
+  left: 10%;
+}
+
+.s2 {
+  top: 35%;
+  left: 70%;
+  animation-delay: 2s;
+}
+
+@keyframes shooting {
+  0% {
+    transform: translate(0,0) rotate(45deg);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  30% {
+    transform: translate(250px,250px) rotate(45deg);
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+/* 💕 Floating hearts */
+.heart {
+  position: absolute;
+  bottom: -50px;
+  font-size: 22px;
+  animation: floatHeart 8s linear infinite;
+  opacity: .8;
+}
+
+.h1 {
+  left: 15%;
+  animation-delay: 1s;
+}
+
+.h2 {
+  left: 50%;
+  animation-delay: 4s;
+}
+
+.h3 {
+  left: 80%;
+  animation-delay: 2s;
+}
+
+@keyframes floatHeart {
+  0% {
+    transform: translateY(0) scale(.7);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-110vh) scale(1.3);
+    opacity: 0;
+  }
+}
+
+/* ✨ Main content */
+.content {
+  position: relative;
+  z-index: 10;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 25px;
+}
+
+h1 {
+  font-size: clamp(40px, 10vw, 75px);
+  margin: 0;
+  text-shadow:
+    0 0 10px #fff,
+    0 0 25px #ff8de1,
+    0 0 50px #ff4dcc;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.04);
+  }
+}
+
+.subtitle {
+  font-size: 20px;
+  margin-top: 15px;
+  opacity: .9;
+}
+
+button {
+  margin-top: 30px;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 30px;
+  background: white;
+  color: #4b176e;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(255,255,255,.7);
+  transition: .3s;
+}
+
+button:hover {
+  transform: scale(1.08);
+}
+
+#message {
+  display: none;
+  max-width: 500px;
+  margin-top: 25px;
+  font-size: 18px;
+  line-height: 1.6;
+  animation: appear 1s ease;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<div class="moon"></div>
+
+<div class="cloud cloud1"></div>
+<div class="cloud cloud2"></div>
+
+<div class="shooting-star s1"></div>
+<div class="shooting-star s2"></div>
+
+<div class="heart h1">♡</div>
+<div class="heart h2">♥</div>
+<div class="heart h3">♡</div>
+
+<div class="content">
+
+  <h1>Happy Birthday Yara ✨</h1>
+
+  <div class="subtitle">
+    A little piece of the universe made just for you 🌙💫
+  </div>
+
+  <button onclick="showMessage()">
+    🎁 Open Your Surprise
+  </button>
+
+  <div id="message">
+    Yara 💕<br><br>
+
+    I hope your birthday is as beautiful and special as you are.
+    May this new year of your life be filled with happiness,
+    unforgettable moments, and lots of reasons to smile. ✨
+
+    <br><br>
+
+    Keep shining like the brightest star in the sky. 🌌
+
+    <br><br>
+
+    — From someone who cares about you ❤️
+  </div>
+
+</div>
+
+<script>
+function showMessage() {
+  document.getElementById("message").style.display = "block";
+}
+</script>
+
+</body>
+</html>
