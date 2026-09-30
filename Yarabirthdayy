@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Yara 🌙✨</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  height: 100vh;
+  background: radial-gradient(circle at top, #17134a, #05051a 70%);
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+/* Stars */
+.stars {
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, white 1px, transparent 1px),
+    radial-gradient(circle, #aaa 1px, transparent 1px);
+  background-size: 70px 70px, 110px 110px;
+  animation: moveStars 20s linear infinite;
+  opacity: .8;
+}
+
+@keyframes moveStars {
+  from { transform: translateY(0); }
+  to { transform: translateY(70px); }
+}
+
+/* Moon */
+.moon {
+  position: absolute;
+  top: 10%;
+  right: 12%;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #fffbd1;
+  box-shadow: 0 0 35px #fffbd1;
+}
+
+.moon::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 25px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #0b0929;
+}
+
+/* Clouds */
+.cloud {
+  position: absolute;
+  width: 180px;
+  height: 45px;
+  background: rgba(255,255,255,.12);
+  border-radius: 50px;
+  filter: blur(2px);
+  animation: cloudMove 18s linear infinite;
+}
+
+.cloud::before,
+.cloud::after {
+  content: "";
+  position: absolute;
+  background: rgba(255,255,255,.13);
+  border-radius: 50%;
+}
+
+.cloud::before {
+  width: 70px;
+  height: 70px;
+  left: 30px;
+  bottom: 10px;
+}
+
+.cloud::after {
+  width: 90px;
+  height: 90px;
+  right: 20px;
+  bottom: 5px;
+}
+
+.cloud1 {
+  top: 25%;
+  left: -220px;
+}
+
+.cloud2 {
+  top: 55%;
+  left: -250px;
+  animation-delay: 7s;
+  transform: scale(.7);
+}
+
+@keyframes cloudMove {
+  from { left: -250px; }
+  to { left: 110%; }
+}
+
+/* Shooting stars */
+.shooting-star {
+  position: absolute;
+  width: 3px;
+  height: 90px;
+  background: linear-gradient(white, transparent);
+  transform: rotate(45deg);
+  animation: shoot 4s linear infinite;
+  opacity: 0;
+}
+
+.s1 {
+  top: 15%;
+  left: 15%;
+}
+
+.s2 {
+  top: 35%;
+  left: 70%;
+  animation-delay: 2s;
+}
+
+@keyframes shoot {
+  0% {
+    opacity: 0;
+    transform: translate(0,0) rotate(45deg);
+  }
+  10% { opacity: 1; }
+  35% {
+    opacity: 0;
+    transform: translate(250px,250px) rotate(45deg);
+  }
+  100% { opacity: 0; }
+}
+
+/* Main */
+.container {
+  position: relative;
+  z-index: 5;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 25px;
+}
+
+h1 {
+  font-size: clamp(42px, 10vw, 85px);
+  margin: 0;
+  color: #fff;
+  text-shadow:
+    0 0 10px #fff,
+    0 0 25px #b88cff,
+    0 0 50px #7b4dff;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { transform: scale(1); }
+  to { transform: scale(1.04); }
+}
+
+.subtitle {
+  margin-top: 15px;
+  font-size: clamp(18px, 4vw, 28px);
+  opacity: .9;
+}
+
+.message {
+  max-width: 650px;
+  margin-top: 25px;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #eee;
+}
+
+/* Hearts */
+.heart {
+  position: absolute;
+  font-size: 25px;
+  animation: floatHeart 6s linear infinite;
+  opacity: .8;
+}
+
+@keyframes floatHeart {
+  from {
+    transform: translateY(100vh) scale(.7);
+    opacity: 0;
+  }
+  20% { opacity: 1; }
+  to {
+    transform: translateY(-120px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* Button */
+button {
+  margin-top: 30px;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 30px;
+  background: rgba(255,255,255,.15);
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(180,130,255,.5);
+  backdrop-filter: blur(8px);
+}
+
+button:hover {
+  background: rgba(255,255,255,.25);
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<div class="moon"></div>
+
+<div class="cloud cloud1"></div>
+<div class="cloud cloud2"></div>
+
+<div class="shooting-star s1"></div>
+<div class="shooting-star s2"></div>
+
+<div class="heart" style="left:10%; animation-delay:1s;">♡</div>
+<div class="heart" style="left:25%; animation-delay:3s;">♥</div>
+<div class="heart" style="left:50%; animation-delay:5s;">♡</div>
+<div class="heart" style="left:75%; animation-delay:2s;">♥</div>
+<div class="heart" style="left:90%; animation-delay:4s;">♡</div>
+
+<div class="container">
+
+  <div class="subtitle">A little surprise for you...</div>
+
+  <h1>Happy Birthday Yara ✨</h1>
+
+  <div class="message">
+    May your birthday be as beautiful as the night sky. 🌙<br>
+    May every dream you have find its way to you. ✨<br>
+    And may this new year of your life be filled with happiness,
+    laughter, and unforgettable moments. 💜
+  </div>
+
+  <button onclick="surprise()">
+    ✨ Click for a surprise
+  </button>
+
+</div>
+
+<script>
+function surprise() {
+  alert("You are truly special, Yara. 💜✨ Happy Birthday! 🎂🌙");
+}
+</script>
+
+</body>
+</html>
